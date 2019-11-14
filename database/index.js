@@ -39,3 +39,13 @@ module.exports.setUp = async () => {
   // create DB
   return await RxDB.create(params)
 }
+
+module.exports.collection = async (connection, name) => {
+  const schema = require(`./schemas/${name}.schema`)
+  let config = require(`./collections/${name}.collection`)
+  return connection.collection({
+    name,
+    schema,
+    ...config,
+  })
+}

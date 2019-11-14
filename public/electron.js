@@ -1,11 +1,20 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
-const windowOptions = require('../electron/config/appWindow')
+const windowOptions = require('../config/appWindow')
 
 // app url
 const devURL = 'http://localhost:3000'
 const buildPath = `file://${path.join(__dirname, '../build/index.html')}`
+
+// Database setup
+const database = require('../database/index')
+database.setUp().then(db => {
+  const heroesCollection = database.collection(db, 'heroes')
+  heroesCollection.then(collection => {
+    console.dir(collection)
+  })
+})
 
 /**
  * creates application window
