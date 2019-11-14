@@ -3,11 +3,15 @@ const path = require('path')
 const isDev = require('electron-is-dev')
 const windowOptions = require('../config/appWindow')
 
-// From /electron dir
-
 // app url
 const devURL = 'http://localhost:3000'
 const buildPath = `file://${path.join(__dirname, '../build/index.html')}`
+
+// Database setup
+const database = require('../database/index')
+database.setUp().then(db => {
+  // console.log(db)
+})
 
 /**
  * creates application window

@@ -42,7 +42,7 @@ module.exports = {
        * share change-events between each other. Depending on the adapter this
        * can also be used to define the storage-folder of your data.
        */
-      name: 'electronJSDB',
+      name: 'electronjsdb',
 
       /**
        * -----------------------------------------------------------------------
