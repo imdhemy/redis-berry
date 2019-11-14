@@ -7,9 +7,13 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "electron-is-dev": "^1.1.0",
+    "memdown": "^5.1.0",
+    "pouchdb-adapter-leveldb": "^7.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "rxdb": "^8.7.3",
+    "rxjs": "^6.5.3"
   },
   "scripts": {
     "start": "rescripts start",
@@ -17,10 +21,10 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "cp -rf ./electron/index.js ./public/electron.js && concurrently \"cross-env BROWSER=none yarpm start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
-    "preelectron-pack": "yarn build",
-    "preelectron-dist": "yarn electron-pack",
+    "preelectron-pack": "yarpm build",
+    "preelectron-dist": "yarpm electron-pack",
     "electron-pack": "electron-builder --dir",
     "electron-dist": "electron-builder"
   },
@@ -43,10 +47,12 @@
     "@rescripts/cli": "^0.0.13",
     "@rescripts/rescript-env": "^0.0.11",
     "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
     "electron": "^7.0.1",
     "electron-builder": "^22.1.0",
     "typescript": "^3.6.4",
-    "wait-on": "^3.3.0"
+    "wait-on": "^3.3.0",
+    "yarpm": "^0.2.1"
   },
   "author": {
     "name": "Mohamad Eldhemy",
@@ -62,7 +68,10 @@
     },
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "electron/**/*",
+      "config/**/*",
+      "database/**/*"
     ],
     "directories": {
       "buildResources": "assets"

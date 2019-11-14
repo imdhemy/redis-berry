@@ -12,7 +12,7 @@ const database = require('../database/index')
 database.setUp().then(db => {
   const heroesCollection = database.collection(db, 'heroes')
   heroesCollection.then(collection => {
-    console.dir(collection)
+    // console.dir(collection)
   })
 })
 
