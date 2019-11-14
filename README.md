@@ -19,5 +19,5 @@ If you are like me and likes ReactJS, you'll love this kit. This kit is created 
 
  - [X] Open dev tools only on development.
  - [ ] Run nodeJS server on startup to run as a backend server.
- - [ ] Support a persistent Data Base.
+ - [X] Support a persistent Data Base.
  - [ ] Enhance the README file.
