@@ -18,6 +18,7 @@ If you are like me and likes ReactJS, you'll love this kit. This kit is created 
 ## TODO
 
  - [X] Open dev tools only on development.
- - [ ] Run nodeJS server on startup to run as a backend server.
+ - [X] Run nodeJS server on startup to run as a backend server.
  - [X] Support a persistent Data Base.
+ - [ ] Enhance application structure.
  - [ ] Enhance the README file.
