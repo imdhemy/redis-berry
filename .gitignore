@@ -12,9 +12,6 @@
 /build
 /dist
 
-# development
-/public/electron.js
-
 # misc
 .DS_Store
 .env.local

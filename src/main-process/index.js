@@ -1,14 +1,11 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
-const windowOptions = require('../config/appWindow')
+const windowOptions = require('./config/appWindow')
 
 // app url
 const devURL = 'http://localhost:3000'
-const buildPath = `file://${path.join(__dirname, '../build/index.html')}`
-
-// Start NodeJS backend server
-require('../app')
+const buildPath = `file://${path.join(__dirname, '../../build/index.html')}`
 
 /**
  * creates application window

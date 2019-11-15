@@ -3,19 +3,12 @@
   "homepage": "./",
   "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
+  "main": "src/main-process/index.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
     "electron-is-dev": "^1.1.0",
-    "express": "^4.17.1",
-    "memdown": "^5.1.0",
-    "pouchdb-adapter-leveldb": "^7.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0",
-    "rxdb": "^8.7.3",
-    "rxjs": "^6.5.3"
+    "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "rescripts start",
@@ -23,7 +16,7 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "electron-dev": "cp -rf ./electron/index.js ./public/electron.js && concurrently \"cross-env BROWSER=none yarpm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"cross-env BROWSER=none yarpm start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarpm build",
     "preelectron-dist": "yarpm electron-pack",
@@ -62,6 +55,9 @@
     "url": "http://www.dhemy.studio"
   },
   "build": {
+    "extraMetadata": {
+      "main": "src/main-process/index.js"
+    },
     "appId": "studio.dhemy.my-app",
     "productName": "MyApp",
     "copyright": "Copyright © 2019 ${author}",
@@ -71,10 +67,7 @@
     "files": [
       "build/**/*",
       "node_modules/**/*",
-      "electron/**/*",
-      "config/**/*",
-      "database/**/*",
-      "app/**/*"
+      "src/main-process/**/*"
     ],
     "directories": {
       "buildResources": "assets"
