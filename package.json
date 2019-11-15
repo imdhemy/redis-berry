@@ -5,8 +5,10 @@
   "private": true,
   "main": "public/electron.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "electron-is-dev": "^1.1.0",
+    "express": "^4.17.1",
     "memdown": "^5.1.0",
     "pouchdb-adapter-leveldb": "^7.1.1",
     "react": "^16.11.0",
@@ -71,7 +73,8 @@
       "node_modules/**/*",
       "electron/**/*",
       "config/**/*",
-      "database/**/*"
+      "database/**/*",
+      "app/**/*"
     ],
     "directories": {
       "buildResources": "assets"

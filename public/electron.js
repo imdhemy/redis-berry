@@ -7,14 +7,8 @@ const windowOptions = require('../config/appWindow')
 const devURL = 'http://localhost:3000'
 const buildPath = `file://${path.join(__dirname, '../build/index.html')}`
 
-// Database setup
-const database = require('../database/index')
-database.setUp().then(db => {
-  const heroesCollection = database.collection(db, 'heroes')
-  heroesCollection.then(collection => {
-    console.dir(collection)
-  })
-})
+// Start NodeJS backend server
+require('../app')
 
 /**
  * creates application window
