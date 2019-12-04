@@ -1,33 +1,11 @@
-const bluebird = require('bluebird')
+const connectionTypes = require('./connection-types')
+const clientFactory = require('./client-factory')
 
-const sshRedis = require('./redis-ssh')
 /**
  * Connection type
  * @type {string}
  */
-const connectionType = 'ssh'
-
-/**
- * SSH config
- * TODO: Get SSH config from DB
- * @type {{password: string, host: string, user: string}}
- */
-const sshConfig = {
-  host: '192.168.10.10',
-  port: 22,
-  user: 'vagrant',
-  password: 'vagrant',
-}
-
-/**
- * Redis configs
- * @type {{}}
- */
-const redisConfig = {
-  host: '127.0.0.1',
-  port: 6379,
-  db: 0,
-}
+const connectionType = connectionTypes.LOCAL
 
 /**
  *
@@ -37,21 +15,26 @@ const redisConfig = {
  * @returns {Promise<void>}
  */
 module.exports.command = async (command, key, params) => {
-  const { client, close } = await sshRedis.connect(sshConfig, redisConfig)
+  const { client, close } = await clientFactory.create(connectionType)
 
   client.on('error', () => {
     // TODO: Handle connection error
   })
 
+  clientFactory.promisify(client)
+
   let promise
 
-  bluebird.promisifyAll(client)
   if (command === 'get') {
     promise = await client.getAsync(key)
   } else {
     const asyncCommand = `${command}Async`
     promise = await client[asyncCommand](key, params)
   }
+
+  await client.scanAsync(0).then(res => {
+    console.log(res)
+  })
   close()
   return promise
 }

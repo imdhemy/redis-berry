@@ -4,7 +4,8 @@ Redis Berry is a Cross platform tool to for Redis DB.It's free and always will b
 # TO-DO
 - [x] Connect to redis.
 - [X] Connect to redis over SSH.
-- [ ] Allow connection over multiple options
-- [ ] Store connection data in DB.
+- [x] Allow connection over multiple options
+- [ ] Create a command factory
+- [ ] Settings module.
 
 
