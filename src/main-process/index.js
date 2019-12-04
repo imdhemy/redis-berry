@@ -2,10 +2,13 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
 const windowOptions = require('./config/appWindow')
+const client = require('./redis/client')
 
 // app url
 const devURL = 'http://localhost:3000'
 const buildPath = `file://${path.join(__dirname, '../../build/index.html')}`
+
+client.command('get', 'foo').then(res => {console.log(res)})
 
 /**
  * creates application window
