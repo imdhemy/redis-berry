@@ -1,22 +1,19 @@
-.App {
-  text-align: center;
+html, body {
+    height: 100%;
+    font-family: 'Raleway', sans-serif
 }
 
-.App-logo {
-  height: 40vmin;
+body {
+    display: flex;
+    align-items: stretch;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#root {
+    width: 100%;
+    height: 100%;
 }
 
-.App-link {
-  color: #09d3ac;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 300 !important;
 }
