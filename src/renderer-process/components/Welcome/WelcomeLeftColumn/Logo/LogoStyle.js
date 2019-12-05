@@ -1,8 +1,10 @@
+import { stdMargin } from '../../../../configs/dimensions'
+
 export const container = {
-  flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
   display: 'flex',
+  marginBottom: stdMargin,
 }
 
 export const header = {}

@@ -1,7 +1,6 @@
 import { stdPadding } from '../../../../configs/dimensions'
 
 export const container = {
-  flex: 1,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
