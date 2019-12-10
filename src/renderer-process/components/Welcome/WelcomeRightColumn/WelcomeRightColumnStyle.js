@@ -9,7 +9,6 @@ export const container = {
 }
 
 export const connectionsListContainer = {
-  maxHeight: '90%',
   overflowY: 'scroll',
   padding: stdPadding,
 }

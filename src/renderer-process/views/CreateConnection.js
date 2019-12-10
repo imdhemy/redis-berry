@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
+import { Dashboard } from '../components'
 
 class CreateConnection extends Component {
   render () {
     return (
-      <div>
-        Create Connection
-      </div>
+      <Dashboard hasEntries={false}/>
     )
   }
 }
